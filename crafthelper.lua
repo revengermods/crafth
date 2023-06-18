@@ -35,13 +35,13 @@ local main_window_state = imgui.ImBool(false)
 
 update_state = false
 
-local script_vers = 1
-local script_vers_text = "1.00"
+local script_vers = 2
+local script_vers_text = "1.05"
 
 local update_url = "https://raw.githubusercontent.com/revengermods/crafth/main/update.ini" -- тут тоже свою ссылку
 local update_path = getWorkingDirectory() .. "/update.ini" -- и тут свою ссылку
 
-local script_url = "" -- тут свою ссылку
+local script_url = "https://raw.githubusercontent.com/revengermods/crafth/main/crafthelper.lua" -- тут свою ссылку
 local script_path = thisScript().path
 
 
@@ -56,7 +56,7 @@ function main()
 	else cfg.main.theme = 0 themeSettings(0) color = '{ff4747}' end
 
 	sampRegisterChatCommand("craft", cmd_imgui)
-	sampAddChatMessage(''..color..'[Craft Helper]{ffffff} успешно загружен! Активаия:'..color..'/craft ', -1)
+	sampAddChatMessage(''..color..'[Craft Helper]{ffffff} успешно загружен! Активаия:'..color..' /craft ', -1)
 	--sampAddChatMessage('Craft Helper{ffffff} успешно загружен! Активаия:{9370DB} /craft', -1)
 
 	_, id = sampGetPlayerIdByCharHandle(PLAYER_PED)
@@ -2039,6 +2039,7 @@ function imgui.OnDrawFrame()
 			elseif cfg.main.theme == 2 then themeSettings(2) color = '{00a550}'
 			else cfg.main.theme = 0 themeSettings(0) color = '{ff4747}' end
 		end
+		imgui.Separator()
 	elseif menu == 7 then
 	imgui.Button(u8"Алюминий")
 		if imgui.IsItemHovered() then
