@@ -56,7 +56,7 @@ function main()
 	else cfg.main.theme = 0 themeSettings(0) color = '{ff4747}' end
 
 	sampRegisterChatCommand("craft", cmd_imgui)
-	sampAddChatMessage(''..color..'[Craft Helper]{ffffff} успешно загружен! Активаия:'..color..' /craft ', -1)
+	sampAddChatMessage(''..color..'[CraftHelper]{ffffff} успешно загружен! Активаия:'..color..' /craft ', -1)
 	--sampAddChatMessage('Craft Helper{ffffff} успешно загружен! Активаия:{9370DB} /craft', -1)
 
 	_, id = sampGetPlayerIdByCharHandle(PLAYER_PED)
@@ -66,7 +66,7 @@ function main()
         if status == dlstatus.STATUS_ENDDOWNLOADDATA then
             updateIni = inicfg.load(nil, update_path)
             if tonumber(updateIni.info.vers) > script_vers then
-                sampAddChatMessage("Есть обновление! Версия: " .. updateIni.info.vers_text, -1)
+                sampAddChatMessage(''..color..'[CraftHelper] Есть обновление! Версия: ' .. updateIni.info.vers_text, -1)
                 update_state = true
             end
             os.remove(update_path)
@@ -84,7 +84,7 @@ function main()
         if update_state then
             downloadUrlToFile(script_url, script_path, function(id, status)
                 if status == dlstatus.STATUS_ENDDOWNLOADDATA then
-                    sampAddChatMessage("Скрипт успешно обновлен!", -1)
+                    sampAddChatMessage(''..color..'[CraftHelper] Скрипт успешно обновлен!', -1)
                     thisScript():reload()
                 end
             end)
