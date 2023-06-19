@@ -35,8 +35,8 @@ local main_window_state = imgui.ImBool(false)
 
 update_state = false
 
-local script_vers = 1
-local script_vers_text = "1.00"
+local script_vers = 2
+local script_vers_text = "1.05"
 
 local update_url = "https://raw.githubusercontent.com/revengermods/crafth/main/update.ini" -- тут тоже свою ссылку
 local update_path = getWorkingDirectory() .. "/update.ini" -- и тут свою ссылку
@@ -264,7 +264,7 @@ function imgui.OnDrawFrame()
 		ScreenX, ScreenY = getScreenResolution()ScreenX, ScreenY = getScreenResolution()
 		imgui.SetNextWindowPos(imgui.ImVec2(ScreenX / 2 , ScreenY / 2), imgui.Cond.FirsUseEver, imgui.ImVec2(0.5, 0.5))
 	end		
-	imgui.Begin(u8"Craft Helper | Версия: 1.0", main_window_state, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse + imgui.WindowFlags.NoScrollbar)
+	imgui.Begin(u8"CraftHelper | Версия: 1.0", main_window_state, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse + imgui.WindowFlags.NoScrollbar)
 	imgui.CenterText(u8" ")
 	imgui.SameLine()
 	imgui.SetCursorPos(imgui.ImVec2(4, 25))
