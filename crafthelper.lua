@@ -1,6 +1,6 @@
 script_name('CraftHelper')
 script_author('revenger mods')
-script_version('1.0')
+script_version('1.1')
 
 require "lib.moonloader" -- подключение библиотеки
 
@@ -35,8 +35,8 @@ local main_window_state = imgui.ImBool(false)
 
 update_state = false
 
-local script_vers = 2
-local script_vers_text = "1.05"
+local script_vers = 3
+local script_vers_text = "1.10"
 
 local update_url = "https://raw.githubusercontent.com/revengermods/crafth/main/update.ini" -- тут тоже свою ссылку
 local update_path = getWorkingDirectory() .. "/update.ini" -- и тут свою ссылку
@@ -53,6 +53,8 @@ function main()
 	if cfg.main.theme == 0 then themeSettings(0) color = '{ff4747}'
 	elseif cfg.main.theme == 1 then themeSettings(1) color = '{9370DB}'
 	elseif cfg.main.theme == 2 then themeSettings(2) color = '{00a550}'
+	elseif cfg.main.theme == 3 then themeSettings(3) color = '{CD853F}'
+	elseif cfg.main.theme == 4 then themeSettings(4) color = '{808080}'				
 	else cfg.main.theme = 0 themeSettings(0) color = '{ff4747}' end
 
 	sampRegisterChatCommand("craft", cmd_imgui)
@@ -246,6 +248,88 @@ function themeSettings(theme)
 	    colors[clr.PlotHistogramHovered]   = ImVec4(0.00, 0.80, 0.38, 1.00)
 	    colors[clr.TextSelectedBg]         = ImVec4(0.00, 0.69, 0.33, 0.72)
 	    colors[clr.ModalWindowDarkening]   = ImVec4(0.17, 0.17, 0.17, 0.48)
+	elseif theme == 3 then -- orange
+		colors[clr.Text]                   = ImVec4(0.95, 0.96, 0.98, 1.00);
+		colors[clr.TextDisabled]           = ImVec4(0.29, 0.29, 0.29, 1.00);
+		colors[clr.WindowBg]               = ImVec4(0.14, 0.14, 0.14, 1.00);
+		colors[clr.ChildWindowBg]          = ImVec4(0.12, 0.12, 0.12, 1.00);
+		colors[clr.PopupBg]                = ImVec4(0.08, 0.08, 0.08, 0.94);
+		colors[clr.Border]                 = ImVec4(0.14, 0.14, 0.14, 1.00);
+		colors[clr.BorderShadow]           = ImVec4(1.00, 1.00, 1.00, 0.10);
+		colors[clr.FrameBg]                = ImVec4(0.22, 0.22, 0.22, 1.00);
+		colors[clr.FrameBgHovered]         = ImVec4(0.18, 0.18, 0.18, 1.00);
+		colors[clr.FrameBgActive]          = ImVec4(0.09, 0.12, 0.14, 1.00);
+		colors[clr.TitleBg]                = ImVec4(0.14, 0.14, 0.14, 0.81);
+		colors[clr.TitleBgActive]          = ImVec4(0.14, 0.14, 0.14, 1.00);
+		colors[clr.TitleBgCollapsed]       = ImVec4(0.00, 0.00, 0.00, 0.51);
+		colors[clr.MenuBarBg]              = ImVec4(0.20, 0.20, 0.20, 1.00);
+		colors[clr.ScrollbarBg]            = ImVec4(0.02, 0.02, 0.02, 0.39);
+		colors[clr.ScrollbarGrab]          = ImVec4(0.36, 0.36, 0.36, 1.00);
+		colors[clr.ScrollbarGrabHovered]   = ImVec4(0.12, 0.12, 0.12, 1.00);
+		colors[clr.ScrollbarGrabActive]    = ImVec4(0.36, 0.36, 0.36, 1.00);
+		colors[clr.ComboBg]                = ImVec4(0.24, 0.24, 0.24, 1.00);
+		colors[clr.CheckMark]              = ImVec4(0.76, 0.45, 0.00, 1.00);
+		colors[clr.SliderGrab]             = ImVec4(0.76, 0.45, 0.00, 1.00);
+		colors[clr.SliderGrabActive]       = ImVec4(0.71, 0.38, 0.00, 1.00);
+		colors[clr.Button]                 = ImVec4(0.76, 0.45, 0.00, 1.00);
+	  	colors[clr.ButtonHovered]          = ImVec4(0.94, 0.45, 0.00, 1.00);
+	  	colors[clr.ButtonActive]           = ImVec4(0.71, 0.38, 0.00, 1.00);
+		colors[clr.Header]                 = ImVec4(0.76, 0.45, 0.00, 1.00);
+		colors[clr.HeaderHovered]          = ImVec4(0.94, 0.45, 0.00, 1.00);
+		colors[clr.HeaderActive]           = ImVec4(0.71, 0.38, 0.00, 1.00);
+		colors[clr.ResizeGrip]             = ImVec4(1.00, 0.28, 0.28, 1.00);
+		colors[clr.ResizeGripHovered]      = ImVec4(1.00, 0.39, 0.39, 1.00);
+		colors[clr.ResizeGripActive]       = ImVec4(1.00, 0.19, 0.19, 1.00);
+		colors[clr.CloseButton]            = ImVec4(0.40, 0.39, 0.38, 0.16);
+		colors[clr.CloseButtonHovered]     = ImVec4(0.40, 0.39, 0.38, 0.39);
+		colors[clr.CloseButtonActive]      = ImVec4(0.40, 0.39, 0.38, 1.00);
+		colors[clr.PlotLines]              = ImVec4(0.61, 0.61, 0.61, 1.00);
+		colors[clr.PlotLinesHovered]       = ImVec4(1.00, 0.43, 0.35, 1.00);
+		colors[clr.PlotHistogram]          = ImVec4(1.00, 0.21, 0.21, 1.00);
+		colors[clr.PlotHistogramHovered]   = ImVec4(1.00, 0.18, 0.18, 1.00);
+		colors[clr.TextSelectedBg]         = ImVec4(1.00, 0.32, 0.32, 1.00);
+		colors[clr.ModalWindowDarkening]   = ImVec4(0.26, 0.26, 0.26, 0.60);
+	elseif theme == 4 then -- серая
+		colors[clr.Text]                   = ImVec4(0.95, 0.96, 0.98, 1.00);
+		colors[clr.TextDisabled]           = ImVec4(0.29, 0.29, 0.29, 1.00);
+		colors[clr.WindowBg]               = ImVec4(0.14, 0.14, 0.14, 1.00);
+		colors[clr.ChildWindowBg]          = ImVec4(0.12, 0.12, 0.12, 1.00);
+		colors[clr.PopupBg]                = ImVec4(0.08, 0.08, 0.08, 0.94);
+		colors[clr.Border]                 = ImVec4(0.14, 0.14, 0.14, 1.00);
+		colors[clr.BorderShadow]           = ImVec4(1.00, 1.00, 1.00, 0.10);
+		colors[clr.FrameBg]                = ImVec4(0.22, 0.22, 0.22, 1.00);
+		colors[clr.FrameBgHovered]         = ImVec4(0.18, 0.18, 0.18, 1.00);
+		colors[clr.FrameBgActive]          = ImVec4(0.09, 0.12, 0.14, 1.00);
+		colors[clr.TitleBg]                = ImVec4(0.14, 0.14, 0.14, 0.81);
+		colors[clr.TitleBgActive]          = ImVec4(0.14, 0.14, 0.14, 1.00);
+		colors[clr.TitleBgCollapsed]       = ImVec4(0.00, 0.00, 0.00, 0.51);
+		colors[clr.MenuBarBg]              = ImVec4(0.20, 0.20, 0.20, 1.00);
+		colors[clr.ScrollbarBg]            = ImVec4(0.02, 0.02, 0.02, 0.39);
+		colors[clr.ScrollbarGrab]          = ImVec4(0.36, 0.36, 0.36, 1.00);
+		colors[clr.ScrollbarGrabHovered]   = ImVec4(0.12, 0.12, 0.12, 1.00);
+		colors[clr.ScrollbarGrabActive]    = ImVec4(0.36, 0.36, 0.36, 1.00);
+		colors[clr.ComboBg]                = ImVec4(0.24, 0.24, 0.24, 1.00);
+		colors[clr.CheckMark]              = ImVec4(0.37, 0.37, 0.37, 1.00);
+		colors[clr.SliderGrab]             = ImVec4(0.37, 0.37, 0.37, 1.00);
+		colors[clr.SliderGrabActive]       = ImVec4(0.33, 0.33, 0.33, 1.00);
+		colors[clr.Button]                 = ImVec4(0.37, 0.37, 0.37, 1.00);
+		colors[clr.ButtonHovered]          = ImVec4(0.46, 0.46, 0.46, 1.00);
+		colors[clr.ButtonActive]           = ImVec4(0.33, 0.33, 0.33, 1.00);
+		colors[clr.Header]                 = ImVec4(0.37, 0.37, 0.37, 1.00);
+		colors[clr.HeaderHovered]          = ImVec4(0.46, 0.46, 0.46, 1.00);
+		colors[clr.HeaderActive]           = ImVec4(0.33, 0.33, 0.33, 1.00);
+		colors[clr.ResizeGrip]             = ImVec4(1.00, 0.28, 0.28, 1.00);
+		colors[clr.ResizeGripHovered]      = ImVec4(1.00, 0.39, 0.39, 1.00);
+		colors[clr.ResizeGripActive]       = ImVec4(1.00, 0.19, 0.19, 1.00);
+		colors[clr.CloseButton]            = ImVec4(0.40, 0.39, 0.38, 0.16);
+		colors[clr.CloseButtonHovered]     = ImVec4(0.40, 0.39, 0.38, 0.39);
+		colors[clr.CloseButtonActive]      = ImVec4(0.40, 0.39, 0.38, 1.00);
+		colors[clr.PlotLines]              = ImVec4(0.61, 0.61, 0.61, 1.00);
+		colors[clr.PlotLinesHovered]       = ImVec4(1.00, 0.43, 0.35, 1.00);
+		colors[clr.PlotHistogram]          = ImVec4(1.00, 0.21, 0.21, 1.00);
+		colors[clr.PlotHistogramHovered]   = ImVec4(1.00, 0.18, 0.18, 1.00);
+		colors[clr.TextSelectedBg]         = ImVec4(1.00, 0.32, 0.32, 1.00);
+		colors[clr.ModalWindowDarkening]   = ImVec4(0.26, 0.26, 0.26, 0.60);		 	
  end
 end
 
@@ -257,14 +341,14 @@ function cmd_imgui()
 end
 
 function imgui.OnDrawFrame()
-	local colours = {u8'Красная', u8'Фиолетовая', u8'Зелёная'}	
+	local colours = {u8'Красная', u8'Фиолетовая', u8'Зелёная', u8'Оранжевая', u8'Серая'}	
 	if main_window_state then
 	imgui.SetNextWindowSize(imgui.ImVec2(400, 400), imgui.Cond.FirstUseEver)
 	if not window_pos then
 		ScreenX, ScreenY = getScreenResolution()ScreenX, ScreenY = getScreenResolution()
 		imgui.SetNextWindowPos(imgui.ImVec2(ScreenX / 2 , ScreenY / 2), imgui.Cond.FirsUseEver, imgui.ImVec2(0.5, 0.5))
 	end		
-	imgui.Begin(u8"CraftHelper | Версия: 1.0", main_window_state, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse + imgui.WindowFlags.NoScrollbar)
+	imgui.Begin(u8"CraftHelper | Версия: 1.1", main_window_state, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse + imgui.WindowFlags.NoScrollbar)
 	imgui.CenterText(u8" ")
 	imgui.SameLine()
 	imgui.SetCursorPos(imgui.ImVec2(4, 25))
@@ -296,6 +380,150 @@ function imgui.OnDrawFrame()
 		    imgui.Text(u8'Металл - 12шт\nДревесина высшего качества - 42шт\nАлюминий - 3шт\nЛён - 40шт\nХлопок - 40шт\nСтоимость - 6000р')
 		    imgui.EndTooltip()
 		end	
+		imgui.Button(u8'Медаль Ведьмака')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Металл - 40шт\nАлюминий - 30шт\nБронза - 40шт\nКамень - 60шт\nХлопок - 100шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8'Рюкзак Stranger Things')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 14шт\nАлюминий - 10шт\nБронза - 4шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8'Кепка Stranger Things')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 30шт\nХлопок - 30шт\nКусок редкой ткани - 6шт\nАлюминий - 4шт\nБронза - 4шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8'Голова Каширо Из Унесенных Призраками')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 4шт\nАлюминий - 4шт\nБронза - 6шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end
+		imgui.Button(u8'Безликий')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 90шт\nХлопок - 70шт\nКусок редкой ткани - 10шт\nАлюминий - 8шт\nБронза - 6шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8'Тетрадь смерти')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 10шт\nХлопок - 10шт\nКусок редкой ткани - 4шт\nАлюминий - 2шт\nБронза - 4шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8'Маска Чучела Из Ходячий Замка')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 90шт\nХлопок - 60шт\nКусок редкой ткани - 10шт\nАлюминий - 4шт\nБронза - 4шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end
+		imgui.Button(u8'Маска Конь Бюджек')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 10шт\nАлюминий - 10шт\nБронза - 4шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8'Бронежилет Бюджек')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Металл - 40шт\nАлюминий - 30шт\nБронза - 40шт\nКамень - 60шт\nХлопок - 100шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8'Стэн')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 10шт\nАлюминий - 6шт\nБронза - 6шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8'Кенни')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 10шт\nАлюминий - 6шт\nБронза - 6шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8'Кайл')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 10шт\nАлюминий - 6шт\nБронза - 6шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8'Шлем Человека - Муровья')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 14шт\nАлюминий - 10шт\nБронза - 4шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8'Громсекира Тора')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 14шт\nАлюминий - 10шт\nБронза - 4шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8'Барсетка Balenciaga')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 14шт\nАлюминий - 10шт\nБронза - 4шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end
+		imgui.Button(u8'Барсетка Gucci 1')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 14шт\nАлюминий - 10шт\nБронза - 4шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8'Барсетка Gucci 2')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 14шт\nАлюминий - 10шт\nБронза - 4шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8'Кепка Stone Island')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 14шт\nАлюминий - 10шт\nБронза - 4шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8'Кепка Gucci 1')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 14шт\nАлюминий - 10шт\nБронза - 4шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8'Очки в BIT')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 14шт\nАлюминий - 10шт\nБронза - 4шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8'Очки Balenciaga')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 14шт\nАлюминий - 10шт\nБронза - 4шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8'Маска Удильщик')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 60шт\nХлопок - 90шт\nКусок редкой ткани - 10шт\nАлюминий - 14шт\nБронза - 10шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8'Шляпа Со Свечкой')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 50шт\nХлопок - 60шт\nКусок редкой ткани - 14шт\nАлюминий - 8шт\nБронза - 6шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8'Крылья Давинчи')
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Дрова - 100шт\nХлопок - 60шт\nКусок редкой ткани - 14шт\nАлюминий - 10шт\nБронза - 10шт\nСтоимость - 5000р')
+		    imgui.EndTooltip()
+		end																																															
 	imgui.Button(u8'Маска от коронавируса')
 		if imgui.IsItemHovered() then
 		    imgui.BeginTooltip()
@@ -1213,6 +1441,148 @@ function imgui.OnDrawFrame()
 		end		
 	elseif menu == 2 then
 	-- Амиран (id:394)
+	imgui.Button(u8"Гордон (id:540)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8"Иосиф Сталин (id:541)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8"Доктор Браун (id:594)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end	
+--
+	imgui.Button(u8"Слава Дворецков (id:595)")
+	if imgui.IsItemHovered() then
+		imgui.BeginTooltip()
+		imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		imgui.EndTooltip()
+	end	
+--
+	imgui.Button(u8"Дит (id:567)")
+	if imgui.IsItemHovered() then
+		imgui.BeginTooltip()
+		imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		imgui.EndTooltip()
+	end	
+	imgui.Button(u8"Эрнесто (id:568)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Норо (id:570)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Квенси (id:571)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Сигерс (id:572)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Устанько (id:573)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end		
+		--
+		imgui.Button(u8"Браток (id:575)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Ромеро (id:579)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8"Джон Сноу (id:580)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Миа (id:581)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8"Артур Морган (id:582)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Джоел (id:584)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8"Эмгыр (id:585)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Леви (id:591)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8"Джонни (id:538)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Шон Майклэ (id:554)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end	
+		--
+		imgui.Button(u8"Халк Хоган (id:555)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Трипл Эйч (id:556)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Крис Джерико (id:557)")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Хлопок - 100шт\nЛён - 100шт\nКусок редкой ткани - 10шт\nКраситель - 10шт\nШкура медведя - 1шт\nСтоимость - 3000р')
+		    imgui.EndTooltip()
+		end																														
 	imgui.Button(u8"Амиран (id:394)")
 		if imgui.IsItemHovered() then
 		    imgui.BeginTooltip()
@@ -2037,6 +2407,8 @@ function imgui.OnDrawFrame()
 			if cfg.main.theme == 0 then themeSettings(0) color = '{ff4747}'
 			elseif cfg.main.theme == 1 then themeSettings(1) color = '{9370DB}'
 			elseif cfg.main.theme == 2 then themeSettings(2) color = '{00a550}'
+			elseif cfg.main.theme == 3 then themeSettings(3) color = '{CD853F}'
+			elseif cfg.main.theme == 4 then themeSettings(4) color = '{808080}'								
 			else cfg.main.theme = 0 themeSettings(0) color = '{ff4747}' end
 		end
 		imgui.Separator()
