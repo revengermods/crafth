@@ -1,6 +1,6 @@
 script_name('CraftHelper')
 script_author('revenger mods')
-script_version('1.1')
+script_version('1.2')
 
 require "lib.moonloader" -- подключение библиотеки
 
@@ -35,8 +35,8 @@ local main_window_state = imgui.ImBool(false)
 
 update_state = false
 
-local script_vers = 3
-local script_vers_text = "1.10"
+local script_vers = 4
+local script_vers_text = "1.12"
 
 local update_url = "https://raw.githubusercontent.com/revengermods/crafth/main/update.ini" -- тут тоже свою ссылку
 local update_path = getWorkingDirectory() .. "/update.ini" -- и тут свою ссылку
@@ -86,7 +86,7 @@ function main()
         if update_state then
             downloadUrlToFile(script_url, script_path, function(id, status)
                 if status == dlstatus.STATUS_ENDDOWNLOADDATA then
-                    sampAddChatMessage(''..color..'[CraftHelper] Скрипт успешно обновлен!', -1)
+                    sampAddChatMessage(''..color..'[CraftHelper] Скрипт успешно обновлен! | Связь: '..color..'[vk.com/qweeqwz]', -1)
                     thisScript():reload()
                 end
             end)
@@ -99,7 +99,6 @@ function main()
 	end
 end 
 
--- -- -- All themes for ImGui by ronnyevans.lua -- -- --
 function themeSettings(theme)
  imgui.SwitchContext()
  local style = imgui.GetStyle()
@@ -333,7 +332,6 @@ function themeSettings(theme)
  end
 end
 
-	-- -- -- Создатель темы (не всех цветов): ronnyevans.lua -- -- --
 
 function cmd_imgui()
 	main_window_state.v = not main_window_state.v
@@ -348,7 +346,7 @@ function imgui.OnDrawFrame()
 		ScreenX, ScreenY = getScreenResolution()ScreenX, ScreenY = getScreenResolution()
 		imgui.SetNextWindowPos(imgui.ImVec2(ScreenX / 2 , ScreenY / 2), imgui.Cond.FirsUseEver, imgui.ImVec2(0.5, 0.5))
 	end		
-	imgui.Begin(u8"CraftHelper | Версия: 1.1", main_window_state, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse + imgui.WindowFlags.NoScrollbar)
+	imgui.Begin(u8"CraftHelper | Версия: 1.2", main_window_state, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse + imgui.WindowFlags.NoScrollbar)
 	imgui.CenterText(u8" ")
 	imgui.SameLine()
 	imgui.SetCursorPos(imgui.ImVec2(4, 25))
@@ -1834,7 +1832,7 @@ function imgui.OnDrawFrame()
 		    imgui.BeginTooltip()
 		    imgui.Text(u8'Металл - 2шт\nХлопок - 50шт\nАлюминий - 2шт\nСтоимость - 15000р')
 		    imgui.EndTooltip()
-		end		
+		end																
 	elseif menu == 13 then
 	imgui.Button(u8"Vivo V25")
 		if imgui.IsItemHovered() then
@@ -2413,6 +2411,12 @@ function imgui.OnDrawFrame()
 		end
 		imgui.Separator()
 	elseif menu == 7 then
+		imgui.Button(u8"Сертификат Дополнения VIP")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Сертификат Дополнения VIP (30д) - 4шт\nЛен - 500шт\nХлопок - 500шт\nСеребро - 100шт\nЗолото - 100шт\nСтоимость - 150000р')
+		    imgui.EndTooltip()
+		end			
 	imgui.Button(u8"Алюминий")
 		if imgui.IsItemHovered() then
 		    imgui.BeginTooltip()
