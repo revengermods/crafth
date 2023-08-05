@@ -1,6 +1,6 @@
 script_name('CraftHelper')
 script_author('revenger mods')
-script_version('1.2')
+script_version('1.3')
 
 require "lib.moonloader" -- подключение библиотеки
 
@@ -35,8 +35,8 @@ local main_window_state = imgui.ImBool(false)
 
 update_state = false
 
-local script_vers = 4
-local script_vers_text = "1.12"
+local script_vers = 5
+local script_vers_text = "1.13"
 
 local update_url = "https://raw.githubusercontent.com/revengermods/crafth/main/update.ini" -- тут тоже свою ссылку
 local update_path = getWorkingDirectory() .. "/update.ini" -- и тут свою ссылку
@@ -346,7 +346,7 @@ function imgui.OnDrawFrame()
 		ScreenX, ScreenY = getScreenResolution()ScreenX, ScreenY = getScreenResolution()
 		imgui.SetNextWindowPos(imgui.ImVec2(ScreenX / 2 , ScreenY / 2), imgui.Cond.FirsUseEver, imgui.ImVec2(0.5, 0.5))
 	end		
-	imgui.Begin(u8"CraftHelper | Версия: 1.2", main_window_state, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse + imgui.WindowFlags.NoScrollbar)
+	imgui.Begin(u8"CraftHelper | Версия: 1.3", main_window_state, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse + imgui.WindowFlags.NoScrollbar)
 	imgui.CenterText(u8" ")
 	imgui.SameLine()
 	imgui.SetCursorPos(imgui.ImVec2(4, 25))
@@ -1832,7 +1832,128 @@ function imgui.OnDrawFrame()
 		    imgui.BeginTooltip()
 		    imgui.Text(u8'Металл - 2шт\nХлопок - 50шт\nАлюминий - 2шт\nСтоимость - 15000р')
 		    imgui.EndTooltip()
-		end																
+		end	
+		imgui.Separator()
+		imgui.CenterText(u8"Стол для смешивания")
+		imgui.Separator()	
+		---
+		imgui.Button(u8"Семена Наркотического гриба")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Накротический гриб - 1шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8"Наркотики")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Накротический гриб - 1шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Удобрения")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Погибшие растения - 10шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Отвар От Наркозависимости")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Мак - 5шт\nАптечка - 5шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Лекарство От Психрасстройства")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Мак - 20шт\nНаркотики - 200шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Простой Фермерский Чай")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лен - 10шт\nНапиток - 5шт\nЦветы - 1шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end	--Простой Рудный Чай
+		imgui.Button(u8"Простой Рудный Чай")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Яд - 1шт\nКола - 1шт\nСеребро - 1шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8"Простой Диетический Чай")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Лимонад - 1шт\nАптечка - 3шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8"Продвинутый Фермерский Чай")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Простой Фермерский Чай - 2шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Продвинутый Рудный Чай")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Простой Рудный Чай - 2шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8"Продвинутый Диетический Чай")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Простой Диетический Чай - 2шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end	
+		---	
+		imgui.Button(u8"Чистый Фермерский Чай")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Продвинутый Фермерский Чай - 3шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Чистый Рудный Чай")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Продвинутый Рудный Чай - 3шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8"Чистый Диетический Чай")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Продвинутый Диетический Чай - 3шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end	
+		---	
+		imgui.Button(u8"Авто Ящик")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Камень - 10шт\nБронза - 5шт\nМеталл - 5шт\nСеребро - 1шт\nЛен - 15шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Мото Ящик")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Камень - 10шт\nБронза - 5шт\nМеталл - 5шт\nСеребро - 1шт\nЛен - 15шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8"Ящик Marvel")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Камень - 10шт\nБронза - 5шт\nМеталл - 5шт\nСеребро - 1шт\nЛен - 15шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end		
+		imgui.Button(u8"Ящик Джентельмены")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Камень - 10шт\nБронза - 5шт\nМеталл - 5шт\nСеребро - 1шт\nЛен - 15шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end	
+		imgui.Button(u8"Ящик Американских Звезд")
+		if imgui.IsItemHovered() then
+		    imgui.BeginTooltip()
+		    imgui.Text(u8'Камень - 10шт\nБронза - 5шт\nМеталл - 5шт\nСеребро - 1шт\nЛен - 15шт\nСтоимость - 0р')
+		    imgui.EndTooltip()
+		end											
+		---															
 	elseif menu == 13 then
 	imgui.Button(u8"Vivo V25")
 		if imgui.IsItemHovered() then
